@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo 2</title>
+    <style>
+        :root{
+            --cor0: #137F27;
+            --cor1: #0D6F1F;
+            --cor2: #055E16;
+            --cor3: #195128;
+            --cor4: #00420C;
+            --cor5: #101010;
+            --cor6: #F9F9F9;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body{
+            background-color: var(--cor5);
+        }
+
+        #corpo{
+            background-image: linear-gradient(to bottom, var(--cor4), var(--cor2));
+            color: white;
+            height: 90vh;
+            min-width: 70vw;
+            max-width: 100vw;
+            padding: 10px;
+            border-radius: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        header{
+            padding: 5px;
+        }
+
+        nav{
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        nav a{
+            background-color: var(--cor1);
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+
+        nav a:hover{
+            color: var(--cor0);
+            background-color: var(--cor3);
+            transition: 0.1s;
+            box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        hr{
+            margin: 20px;
+        }
+
+        main{
+            background-color: var(--cor2);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 50vw;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="corpo">
+        <header>
+            <h1>Instituto Federal de Educação, Ciência e Tecnologia de São Paulo</h1>
+            <h2>Campus Catanduva</h2>
+            <nav>
+                <a href="#">Informações</a>
+                <a href="#">Dados do Aluno</a>
+                <a href="#">Armários</a>
+                <a href="#">Reserva do almoço</a>
+            </nav>
+        </header>
+        <hr>
+        <main>
+            <p>Nome: <span id="userName"></span></p>
+            <p>Prontuário: CT<span id="userProntuario"></span></p>
+            <p>Curso: <span id="userCurso"></span></p>
+        </main>
+    </div>
+    
+    <script>
+        // Recupera os dados do LocalStorage
+        document.getElementById("userName").textContent = localStorage.getItem("nome") || "Usuário";
+        document.getElementById("userProntuario").textContent = localStorage.getItem("prontuario") || "Não informado";
+        document.getElementById("userCurso").textContent = localStorage.getItem("curso") || "Não informado";
+    </script>
+</body>
+</html>
